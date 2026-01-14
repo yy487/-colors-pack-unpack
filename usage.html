@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConsoleApplication1 Usage Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+        }
+        code {
+            color: #e74c3c;
+            font-family: Consolas, monospace;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        .troubleshooting li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>ConsoleApplication1.exe Usage Guide</h1>
+
+    <div class="section">
+        <h2>Step 1: Open the Command Line</h2>
+        <ol>
+            <li>Press <code>Win + R</code>, type <code>cmd</code>, and press <strong>Enter</strong> to open <strong>Command Prompt</strong>.</li>
+            <li>Navigate to the folder where <code>ConsoleApplication1.exe</code> is located. For example:
+                <pre>
+# Switch to D:\ConsoleApplication1 (adjust the path to your folder)
+cd /d D:\ConsoleApplication1</pre>
+            </li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>Step 2: Use the Tool (Extract/Pack)</h2>
+        <h3>Option 1: Extract Files from a BND File</h3>
+        <p><strong>Command Format</strong>:</p>
+        <pre>ConsoleApplication1.exe -e [PATH_TO_BND_FILE] [OUTPUT_FOLDER_NAME]</pre>
+        <p><strong>Example</strong>:</p>
+        <p>To extract <code>test.bnd</code> (in the same folder) into a new folder named <code>output</code>:</p>
+        <pre>ConsoleApplication1.exe -e test.bnd output</pre>
+        <ul>
+            <li>The tool will automatically create the <code>output</code> folder and extract all files (named <code>00000</code>, <code>00001</code>, etc.) into it.</li>
+        </ul>
+
+        <h3>Option 2: Pack Files into a BND File</h3>
+        <p><strong>Prerequisite</strong>: Prepare a folder (e.g., <code>input_files</code>) containing files named in sequence (e.g., <code>00000</code>, <code>00001</code>, <code>00002</code>...).</p>
+        <p><strong>Command Format</strong>:</p>
+        <pre>ConsoleApplication1.exe -p [INPUT_FOLDER_PATH] [OUTPUT_BND_FILE_NAME]</pre>
+        <p><strong>Example</strong>:</p>
+        <p>To pack files in <code>input_files</code> into a new BND file named <code>new_test.bnd</code>:</p>
+        <pre>ConsoleApplication1.exe -p input_files new_test.bnd</pre>
+    </div>
+
+    <div class="section troubleshooting">
+        <h2>Troubleshooting</h2>
+        <ul>
+            <li><strong>"File not found" error</strong>: Ensure the file/folder path is correct (avoid spaces/chinese characters in paths).</li>
+            <li><strong>Permission issues</strong>: Run Command Prompt as <strong>Administrator</strong> (right-click → *Run as administrator*).</li>
+            <li><strong>Size mismatch warning</strong>: This is a harmless compatibility prompt; extracted files are still usable.</li>
+        </ul>
+    </div>
+</body>
+</html>
